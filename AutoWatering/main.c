@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
-#include "hardware_timer.h"
+#include "hardware/timer.h"
+#include "malloc.h"
 
 #define G_STATES (6)
 #define RX_PIN (2)
@@ -38,7 +39,7 @@ typedef enum {      // General States
     ERR
 } RX_DATA_TYPE;
 
-typedef void (* ptr2func) (void*, unsigned char*);
+typedef void (* ptr2func) (MyFirstProtocolFrame *, unsigned char*);
 
 static GENERAL_STATE result = Init;
 static unsigned short calculated_cks;
@@ -55,7 +56,7 @@ void error(MyFirstProtocolFrame * frame, unsigned char * result);
 ptr2func gState[G_STATES] = 
 {
     &init,
-    &wait
+    &wait,
     &incoming,
     &reading,
     &validating,
@@ -65,13 +66,13 @@ ptr2func gState[G_STATES] =
 
 void gpio_callback(uint gpio, uint32_t events) {
     gpio_set_irq_enabled(RX_PIN, GPIO_IRQ_EDGE_RISE, false);
-    result = incoming;
+    result = Incoming;
 }
 
-int void alarm_callback(alarm_id_t id, void * user_data)
+int64_t alarm_callback(alarm_id_t id, void * user_data)
 {
     //
-    result = reading;
+    result = Reading;
     return 1000;
 }
 
@@ -114,7 +115,7 @@ void incoming(MyFirstProtocolFrame * frame, unsigned char * result)
     // This will be setup by an interruption
     // Once the interruption occurs result will be set to Wait
     // 
-    add_alarm_in_us(1500, alarm_callback, NULL, false)
+    add_alarm_in_us(1500, &alarm_callback, NULL, false);
     
     *result = Wait;
 }
@@ -241,6 +242,7 @@ void reading(MyFirstProtocolFrame * frame, unsigned char * result)
                     {
                         *result = Error;
                     }
+                    free(frame->data);
                     rx_bit = 0;
                     rx_data_t = SOF;
                 }
@@ -274,5 +276,7 @@ void validating(MyFirstProtocolFrame * frame, unsigned char * result)
 
 void error(MyFirstProtocolFrame * frame, unsigned char * result)
 {
-
+    //forever loop
+    printf("Exception Wrong Data Acquired\r\n");
+    *result = Init;
 }
