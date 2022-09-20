@@ -30,7 +30,7 @@ typedef enum
 
 } decod_msg_status_e;
 
-typedef unsigned char decod_msg_status_t
+typedef unsigned char decod_msg_status_t;
 
 decod_msg_status_t decode_msg_fsm(void);
 

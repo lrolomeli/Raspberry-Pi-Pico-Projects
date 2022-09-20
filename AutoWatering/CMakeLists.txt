@@ -14,7 +14,7 @@ add_library(decodingFSM INTERFACE)
 
 target_sources(decodingFSM INTERFACE
     ${CMAKE_CURRENT_LIST_DIR}/main.c
-    ${CMAKE_CURRENT_LIST_DIR}/decoding-fsm/decoding_fsm.c
+    ${CMAKE_CURRENT_LIST_DIR}/lib/decoding-fsm/decoding_fsm.c
 )
 
 # Link to pico_stdlib (gpio, time, etc. functions)

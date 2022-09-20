@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "decoding_fsm.h"
+#include "lib/decoding-fsm/decoding_fsm.h"
 
 
 #define GRAL_NUMBER_OF_STATES (6)
@@ -156,6 +156,11 @@ void decoding(void * params, unsigned char * result)
 }
 
 
+void process(void * params, unsigned char * result)
+{
+    *result = PROCESS;
+}
+
 
 void error(void * params, unsigned char * result)
 {
@@ -164,7 +169,7 @@ void error(void * params, unsigned char * result)
     // gpio_put(RED_LED, True);
     // gpio_put(YELLOW_LED, False);
     //printf("Exception Wrong Data Acquired\r\n");
-    
+
     *result = WAIT;
     gpio_set_irq_enabled_with_callback(RX_PIN, GPIO_IRQ_EDGE_RISE, true, &gpio_callback);
 }

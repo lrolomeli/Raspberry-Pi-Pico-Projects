@@ -18,7 +18,7 @@ typedef enum {      // General States
     ERR
 } DECODE_STATE;
 
-typedef void (* ptr2func) (MyFirstProtocolFrame *, unsigned char*);
+typedef decod_msg_status_t (* ptr2func) (MyFirstProtocolFrame *, unsigned char*);
 
 static DECODE_STATE decodeState_e = SOF;
 
@@ -30,7 +30,7 @@ static unsigned char rx_byte = 0;
 decod_msg_status_t sync_start_of_frame(MyFirstProtocolFrame * frame, unsigned char * dState);
 decod_msg_status_t length(MyFirstProtocolFrame * frame, unsigned char * dState);
 decod_msg_status_t data(MyFirstProtocolFrame * frame, unsigned char * dState);
-decod_msg_state_t checksum(MyFirstProtocolFrame * frame, unsigned char * dState);
+decod_msg_status_t checksum(MyFirstProtocolFrame * frame, unsigned char * dState);
 bool validate(MyFirstProtocolFrame * frame);
 
 
@@ -48,7 +48,7 @@ decod_msg_status_t decode_msg_fsm(void)
     
     static MyFirstProtocolFrame mfpf = {0};
 
-    return ap2fDecodeState[decodeState_e]( (decod_msg_status_t *) &mfpf, &decodeState_e );
+    return ap2fDecodeState[decodeState_e]( &mfpf, &decodeState_e );
 
 }
 
