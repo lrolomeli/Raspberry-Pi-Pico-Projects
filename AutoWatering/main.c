@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "decoding_fsm.h"
+#include "bypass_valve.h"
 
 
 #define GRAL_NUMBER_OF_STATES (6)
@@ -158,7 +159,12 @@ void decoding(void * params, unsigned char * result)
 
 void process(void * params, unsigned char * result)
 {
-    *result = PROCESS;
+    // This is just for testing purposes
+    // will not be permited to release version
+    open_bp_valve();
+    sleep_ms(10000);
+    close_bp_valve();
+    *result = WAIT;
 }
 
 
