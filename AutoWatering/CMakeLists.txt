@@ -17,7 +17,7 @@ add_subdirectory(./lib/pwm-driver)
 
 add_executable(${PROJECT_NAME} main.c)
 
-target_link_libraries(${PROJECT_NAME} decodingFSM bypassValve servoPWM pwmDriver)
+target_link_libraries(${PROJECT_NAME} decodingFSM bypassValve)
 
 # Creates a pico-sdk subdirectory in our project for the libraries
 pico_sdk_init()
