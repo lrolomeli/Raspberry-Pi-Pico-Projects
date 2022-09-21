@@ -30,7 +30,7 @@ void flow_regulator(unsigned int flow_percentage)
 
     if(flow_percentage>=0 && flow_percentage <= 100)
     {
-        angle = map(flow_percentage, 0, 100, 0, 120);
+        angle = (unsigned char)(flow_percentage * FLOW_PERCENTAGE_2_ANGLE);
         if(servo_set_angle(angle))
         {
             // printf("Valve in angle position");

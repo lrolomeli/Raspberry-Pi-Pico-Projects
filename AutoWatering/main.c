@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "lib/decoding-fsm/decoding_fsm.h"
+#include "decoding_fsm.h"
 
 
 #define GRAL_NUMBER_OF_STATES (6)

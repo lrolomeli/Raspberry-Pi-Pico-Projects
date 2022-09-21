@@ -3,10 +3,11 @@
 
 #include "pwm_driver.h"
 
+#define ANGLE_2_DUTY_CYCLE (10000 / 120)
 
 void servo_setup(void);
 
-bool servo_set_angle(unsigned int angle);
+bool servo_set_angle(unsigned char angle);
 
 bool servo_start(void);
 

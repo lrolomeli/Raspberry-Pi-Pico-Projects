@@ -5,14 +5,18 @@ void servo_setup(void)
     uv_init_pwm_driver_20ms_period();
 }
 
-bool servo_set_angle(unsigned int angle)
+bool servo_set_angle(unsigned char angle)
 {
     unsigned int duty_cycle = 0;
 
-    if(angle >= 0 && angle <= 120)
+    if(angle >= 0 && angle < 120)
     {
-        duty_cycle = map(angle, 0, 120, 0, 10000);
+        duty_cycle = (unsigned short) angle * (unsigned short) ANGLE_2_DUTY_CYCLE;
         return uv_pwm_set_duty_cycle(duty_cycle);
+    }
+    else if(angle == 120)
+    {
+        return uv_pwm_set_duty_cycle(10000);
     }
     else
     {

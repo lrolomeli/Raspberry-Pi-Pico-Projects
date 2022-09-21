@@ -1,6 +1,9 @@
 #ifndef PWM_DRIVER_H
 #define PWM_DRIVER_H
 
+#include <stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/gpio.h"
 #include "hardware/clocks.h"
 #include "hardware/pwm.h"
 
