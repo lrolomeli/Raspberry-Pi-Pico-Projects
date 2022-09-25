@@ -16,16 +16,16 @@ void uv_init_pwm_driver_20ms_period(void)
 	
 	// Divide PWM clock Frequency of 125MHz by 250 to obtain 1 MHz Frequency
 	// pwm_set_clkdiv(slice, 250.0f);
-	pwm_config_set_clkdiv_int_frac(&cfg, 250, 0);
+	pwm_set_clkdiv_int_frac(slice, 250, 0);
 	
 	// 10,000 cycles at 1 MHz Frequency = 10,000 x 1 uS = 10,000 uS = 10 mS of period
 	// After count gets to 10k, the counter wrap back to zero and so it completes 2 ms period
     // pwm_set_wrap(slice, 20000);
-    pwm_config_set_wrap(&cfg, 20000);
+    pwm_set_wrap(slice, 20000);
 
     pwm_set_chan_level(slice, PWM_CHAN_A, 10000);
 
-    pwm_init(slice, &cfg, true);
+    pwm_set_enabled(slice, true);
 
     pwm_config_ok = true;
 
