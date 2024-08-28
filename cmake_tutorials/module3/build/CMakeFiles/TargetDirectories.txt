@@ -1,0 +1,12 @@
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/CMakeFiles/calculator.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/CMakeFiles/duplicate_calculator.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/CMakeFiles/edit_cache.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/CMakeFiles/rebuild_cache.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/lib/CMakeFiles/edit_cache.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/lib/CMakeFiles/rebuild_cache.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/lib/my_math/CMakeFiles/math_lib.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/lib/my_math/CMakeFiles/edit_cache.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/lib/my_math/CMakeFiles/rebuild_cache.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/lib/my_print/CMakeFiles/print_lib.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/lib/my_print/CMakeFiles/edit_cache.dir
+C:/Users/Luis/Documents/cmake/cmake_tutorials/module3/build/lib/my_print/CMakeFiles/rebuild_cache.dir

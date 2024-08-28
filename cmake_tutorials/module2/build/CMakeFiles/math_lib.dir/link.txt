@@ -1,0 +1,2 @@
+C:\tools\VSARM\mingw\mingw32\bin\ar.exe qc libmath_lib.a CMakeFiles/math_lib.dir/addition.cpp.obj CMakeFiles/math_lib.dir/division.cpp.obj
+C:\tools\VSARM\mingw\mingw32\bin\ranlib.exe libmath_lib.a
