@@ -1,2 +1,0 @@
-C:\tools\VSARM\mingw\mingw32\bin\ar.exe qc libprint_lib.a CMakeFiles/print_lib.dir/print_result.cpp.obj
-C:\tools\VSARM\mingw\mingw32\bin\ranlib.exe libprint_lib.a
